@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <title>Validador - Módulo 1</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <h1>Módulo 1 - Aula 1: Primeiros passos</h1>
+  <p><strong>🚀 DESAFIO DO MÓDULO 1:</strong></p>
+  <p>Crie um código que:</p>
+  <p>1. Guarde seu nome em uma variável.</p>
+  <p>2. Guarde o nome da sua cidade em outra.</p>
+  <p>3. Mostre no console uma frase assim:</p>
+  <p class="espacamento-grande destaque"><em>Olá, meu nome é [seu nome] e moro em [sua cidade]!</em></p>
+
+  <p class="espacamento-pequeno">Digite seu código abaixo para validar a tarefa:</p>
+
+  <div class="textarea-container">
+    <textarea id="codigo" placeholder="Digite aqui seu código..."></textarea>
+    <div class="text-below">Javascript com Demetrio dos Anjos</div>
+  </div>
+
+  <div class="button-container">
+    <button id="validarBtn">Validar</button>
+    <button id="limparBtn">Limpar</button>
+  </div>
+
+  <div id="modalErro" class="modal">
+    <div class="modal-content">
+      <div class="modal-title">
+        <span class="modal-icon" style="color: red;">😞</span>
+        Seu código está incorreto!
+      </div>
+      <p>Opa! Não foi dessa vez... Gostaria de tentar novamente?</p>
+      <button onclick="fecharModal('modalErro')">Tentar novamente</button>
+    </div>
+  </div>
+
+  <div id="modalSucesso" class="modal">
+    <div class="modal-content">
+      <div class="modal-title">
+        <span class="modal-icon" style="color: green;">😄</span>
+        Fim do Módulo 1 — Parabéns!
+      </div>
+      <p>Agora que você já:</p>
+      <p>• Criou seu primeiro código,</p>
+      <p>• Executou no terminal,</p>
+      <p>• Entendeu como variáveis funcionam...</p>
+      <p><strong>Módulo 1</strong> <span class="check-icon">✔️</span></p>
+      <button onclick="fecharModal('modalSucesso')">Fechar</button>
+    </div>
+  </div>
+
+  <script src="js/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,136 @@
+body {
+  font-family: Arial, sans-serif;
+  padding: 30px;
+  background-color: #f0f0f5;
+}
+h1 {
+  color: #333;
+}
+p {
+  margin-bottom: 16px;
+}
+p.espacamento-pequeno{
+    margin-bottom: 6px;
+}
+p.espacamento-grande {
+  margin-bottom: 30px;
+}
+.destaque {
+  font-size: 24px;
+  font-weight: 600;
+  color: #007bff;
+}
+.textarea-container {
+  position: relative;
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto; /* Centraliza a textarea-container */
+  margin-bottom: 20px; /* Espaçamento abaixo da textarea */
+}
+textarea {
+  width: 100%;
+  height: 150px;
+  font-family: monospace;
+  font-size: 14px;
+  padding: 10px;
+  box-sizing: border-box;
+  resize: vertical;
+  display: block;
+}
+/* Texto fixo abaixo da textarea, alinhado exatamente com ela */
+.text-below {
+  font-size: 12px;
+  color: #333;
+  margin-top: 6px;
+  padding-right: 10px; /* alinhar com o padding da textarea à direita */
+  box-sizing: border-box;
+  width: 100%;
+  font-weight: 500;
+  text-align: right;    /* alinhado à direita */
+  user-select: none;
+}
+.button-container { /* Novo container para os botões */
+  display: flex;
+  justify-content: center; /* Centraliza os botões */
+  width: 100%;
+  max-width: 600px; /* Alinha com a largura da textarea */
+  margin: 0 auto; /* Centraliza o button-container */
+}
+button {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 600; /* Adicionado: Fonte semibold para todos os botões */
+}
+button:hover {
+  background-color: #0056b3;
+}
+/* Espaçamento específico entre os botões */
+#validarBtn {
+    margin-right: 20px; /* 20px de espaçamento entre validar e limpar */
+    border: 1.5px solid #007bff; /* Adicionado: Stroke de 1.5px para o botão Validar */
+}
+
+/* Estilos para o botão Limpar */
+#limparBtn {
+  background-color: transparent; /* Remove o preenchimento */
+  color: #007bff; /* Cor do texto azul */
+  border: 1px solid #007bff; /* Adiciona o contorno azul */
+}
+
+#limparBtn:hover {
+  background-color: #e6f2ff; /* Um leve fundo azul ao passar o mouse */
+  color: #0056b3; /* Escurece o texto no hover */
+  border-color: #0056b3; /* Escurece o contorno no hover */
+}
+
+/* Modal */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 999;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.5);
+  animation: fadeIn 0.5s ease forwards;
+}
+.modal-content {
+  background-color: #fefefe;
+  margin: 15% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+  max-width: 400px;
+  border-radius: 8px;
+  text-align: center;
+  position: relative;
+  animation: fadeIn 0.5s ease forwards;
+}
+.modal-icon {
+  font-size: 32px;
+  margin-right: 10px;
+  vertical-align: middle;
+}
+.modal-title {
+  font-weight: 600;
+  font-size: 18px;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes fadeOut {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
