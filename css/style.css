@@ -332,6 +332,22 @@ button {
   box-sizing: border-box;
 }
 
+.modal-success-content {
+    max-width: 90%;
+    width: 326px;
+    height: auto;
+    background-color: #FFFFFF;
+    border-radius: 8px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start; /* ← Alinha tudo à esquerda */
+    box-sizing: border-box;
+    text-align: left; /* ← Alinha textos à esquerda */
+}
+
+
 /* --- estilo básico para o botão “Fechar” no modal sucesso, similar ao modal erro: --- */
 
 .modal-close-btn.close-btn {
@@ -378,9 +394,10 @@ button {
 .modal-title-wrapper {
   display: flex;
   align-items: center;
+  justify-content: flex-start; /* ← Linha que faltava */
   gap: 8px;
-  width: 100%; /* Ocupa toda a largura */
-  text-align: left; /* Texto alinhado à esquerda */
+  width: 100%;
+  text-align: left;
   font-weight: bold;
   font-size: 18px;
 }
@@ -391,9 +408,12 @@ button {
 
 .modal-dynamic-message {
   font-size: 14px;
-  margin: 0; /* Remove margem para alinhar com o título */
-  width: 100%; /* Para ocupar toda a largura igual ao título */
-  text-align: left; /* Alinha à esquerda para ficar alinhado ao título */
+  color: #333;
+  width: 100%;
+  text-align: left;        /* Alinha com o título */
+  padding-left: 46px;      /* Mesmo recuo do título por conta do ícone de 40px + gap */
+  box-sizing: border-box;
+  margin-top: 8px;
 }
 
 .modal-close-btn {
