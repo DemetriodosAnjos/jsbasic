@@ -1,57 +1,78 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-  <meta charset="UTF-8" />
-  <title>Validador - Módulo 1</title>
-  <link rel="stylesheet" href="css/style.css">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Validador - Módulo 1</title>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-  <h1>Módulo 1 - Aula 1: Primeiros passos</h1>
-  <p><strong>🚀 DESAFIO DO MÓDULO 1:</strong></p>
-  <p>Crie um código que:</p>
-  <p>1. Guarde seu nome em uma variável.</p>
-  <p>2. Guarde o nome da sua cidade em outra.</p>
-  <p>3. Mostre no console uma frase assim:</p>
-  <p class="espacamento-grande destaque"><em>Olá, meu nome é [seu nome] e moro em [sua cidade]!</em></p>
+    <h1>Javascript I Basic</h1>
+    <p class="subtitle">Aula 1 Primeiros passos</p>
 
-  <p class="espacamento-pequeno">Digite seu código abaixo para validar a tarefa:</p>
+    <div class="container">
+        <h2 class="desafio-titulo">🚀 DESAFIO DO MÓDULO 1:</h2>
 
-  <div class="textarea-container">
-    <textarea id="codigo" placeholder="Digite aqui seu código..."></textarea>
-    <div class="text-below">Javascript com Demetrio dos Anjos</div>
-  </div>
+        <p class="crie-codigo-texto">Crie um código que:</p>
 
-  <div class="button-container">
-    <button id="validarBtn">Validar</button>
-    <button id="limparBtn">Limpar</button>
-  </div>
+        <ul class="instrucoes-lista">
+            <li>1. Guarde seu nome em uma variável.</li>
+            <li>2. Guarde o nome da sua cidade em outra.</li>
+            <li>3. Mostre no console uma frase assim:</li>
+        </ul>
 
-  <div id="modalErro" class="modal">
-    <div class="modal-content">
-      <div class="modal-title">
-        <span class="modal-icon" style="color: red;">😞</span>
-        Seu código está incorreto!
-      </div>
-      <p>Opa! Não foi dessa vez... Gostaria de tentar novamente?</p>
-      <button onclick="fecharModal('modalErro')">Tentar novamente</button>
+        <div class="text-display-container">
+            <p><em>Olá, meu nome é [seu nome] e moro em [sua cidade]!</em></p>
+        </div>
+        
+        <p class="input-label">Digite seu código</p>
+        
+        <div class="textarea-input-field">
+            <textarea id="codigo" placeholder=""></textarea>
+        </div>
+        <div class="text-below">Javascript com Demetrio dos Anjos</div> 
+
+        <div class="button-container">
+            <button id="validarBtn">Validar</button>
+            <button id="limparBtn">Limpar</button>
+        </div>
     </div>
-  </div>
 
-  <div id="modalSucesso" class="modal">
-    <div class="modal-content">
-      <div class="modal-title">
-        <span class="modal-icon" style="color: green;">😄</span>
-        Fim do Módulo 1 — Parabéns!
-      </div>
-      <p>Agora que você já:</p>
-      <p>• Criou seu primeiro código,</p>
-      <p>• Executou no terminal,</p>
-      <p>• Entendeu como variáveis funcionam...</p>
-      <p><strong>Módulo 1</strong> <span class="check-icon">✔️</span></p>
-      <button onclick="fecharModal('modalSucesso')">Fechar</button>
+    <div id="modalErro" class="modal">
+        <div class="modal-content modal-error-content">
+            <div class="modal-header">
+                <div class="modal-title-wrapper">
+                    <img src="icon/icon_alerta.svg" alt="Ícone de alerta" class="modal-alert-icon">
+                    <h3 class="modal-error-title">O código está incorreto!</h3>
+                </div>
+                <button class="modal-close-btn close-icon" data-modal-id="modalErro">
+                    <img src="icon/icon_close.svg" alt="Fechar">
+                </button>
+            </div>
+            <div class="modal-body">
+                <p class="modal-error-message">Ops! Não foi desta vez, tente novamente.</p>
+                <button class="modal-error-button" data-modal-id="modalErro">Tentar novamente</button>
+            </div>
+        </div>
     </div>
-  </div>
 
-  <script src="js/script.js"></script>
+    <div id="modalSucesso" class="modal">
+        <div class="modal-content modal-success-content">
+            <div class="modal-header">
+                <div class="modal-title-wrapper">
+                    <img src="icon/Icon_check.svg" alt="Ícone de check" class="modal-check-icon">
+                    <h3 class="modal-success-title">O código está correto!</h3>
+                </div>
+                <button class="modal-close-btn close-icon" data-modal-id="modalSucesso">
+                    <img src="icon/icon_close.svg" alt="Fechar">
+                </button>
+            </div>
+            <div class="modal-body">
+                <p class="modal-dynamic-message"></p>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/script.js"></script>
 </body>
 </html>

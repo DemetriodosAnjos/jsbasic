@@ -1,136 +1,417 @@
+/* Importação das fontes Inter do Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+/* --- Estilos Globais --- */
 body {
-  font-family: Arial, sans-serif;
-  padding: 30px;
-  background-color: #f0f0f5;
-}
-h1 {
-  color: #333;
-}
-p {
-  margin-bottom: 16px;
-}
-p.espacamento-pequeno{
-    margin-bottom: 6px;
-}
-p.espacamento-grande {
-  margin-bottom: 30px;
-}
-.destaque {
-  font-size: 24px;
-  font-weight: 600;
-  color: #007bff;
-}
-.textarea-container {
-  position: relative;
-  width: 100%;
-  max-width: 600px;
-  margin: 0 auto; /* Centraliza a textarea-container */
-  margin-bottom: 20px; /* Espaçamento abaixo da textarea */
-}
-textarea {
-  width: 100%;
-  height: 150px;
-  font-family: monospace;
-  font-size: 14px;
-  padding: 10px;
-  box-sizing: border-box;
-  resize: vertical;
-  display: block;
-}
-/* Texto fixo abaixo da textarea, alinhado exatamente com ela */
-.text-below {
-  font-size: 12px;
-  color: #333;
-  margin-top: 6px;
-  padding-right: 10px; /* alinhar com o padding da textarea à direita */
-  box-sizing: border-box;
-  width: 100%;
-  font-weight: 500;
-  text-align: right;    /* alinhado à direita */
-  user-select: none;
-}
-.button-container { /* Novo container para os botões */
-  display: flex;
-  justify-content: center; /* Centraliza os botões */
-  width: 100%;
-  max-width: 600px; /* Alinha com a largura da textarea */
-  margin: 0 auto; /* Centraliza o button-container */
-}
-button {
-  padding: 10px 20px;
-  background-color: #007bff;
-  color: white;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  font-size: 16px;
-  font-weight: 600; /* Adicionado: Fonte semibold para todos os botões */
-}
-button:hover {
-  background-color: #0056b3;
-}
-/* Espaçamento específico entre os botões */
-#validarBtn {
-    margin-right: 20px; /* 20px de espaçamento entre validar e limpar */
-    border: 1.5px solid #007bff; /* Adicionado: Stroke de 1.5px para o botão Validar */
+    font-family: 'Inter', Arial, sans-serif;
+    margin: 0;
+    background-color: #f2f3f7; /* Background 1 */
+    color: #333;
+    line-height: 1.6;
+    display: flex; /* Para centralizar o conteúdo principal na tela */
+    flex-direction: column; /* Organiza os elementos verticalmente */
+    align-items: center; /* Centraliza horizontalmente */
+    min-height: 100vh; /* Garante que o background cubra toda a altura da tela */
+    padding: 20px; /* Adiciona um pequeno padding geral para telas menores */
+    box-sizing: border-box; /* Garante que padding não aumente a largura total */
 }
 
-/* Estilos para o botão Limpar */
+/* --- Background 2 (Retângulo Principal) --- */
+.container { /* Usaremos uma div com a classe 'container' para o background 2 */
+    background-color: #ffffff;
+    border-radius: 50px 50px 0 0; /* Superior esquerdo e direito arredondados */
+    width: 390px; /* Largura fixa para o design mobile base */
+    display: flex;
+    flex-direction: column; /* Organiza os itens internos verticalmente */
+    align-items: flex-start; /* Alinha os itens à esquerda por padrão */
+    padding: 30px; /* Padding geral dentro do container */
+    padding-bottom: 20px; /* Ajuste para o padding inferior */
+    box-sizing: border-box;
+    margin-top: 60px; /* Espaço do topo para o título */
+}
+
+/* --- Título Principal "Javascript I Basic" --- */
+h1 {
+    font-family: 'Inter', sans-serif;
+    font-weight: 600; /* Semi-bold */
+    font-size: 24px;
+    color: #555555;
+    text-align: center;
+    margin-top: 40px; /* Espaçamento do topo do body */
+    margin-bottom: 6px; /* Espaçamento abaixo para o subtítulo */
+    width: 100%; /* Garante que ocupe toda a largura */
+}
+
+/* --- Subtítulo "Aula 1 Primeiros passos" --- */
+.subtitle {
+    font-family: 'Inter', sans-serif;
+    font-weight: 400; /* Regular */
+    font-size: 16px;
+    color: #555555;
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 30px; /* Espaçamento abaixo */
+    width: 100%;
+}
+
+/* --- Título do Desafio "🚀 Desafio modulo 1" --- */
+.desafio-titulo {
+    font-family: 'Inter', sans-serif;
+    font-weight: bold; /* 'bold' ou 700 para "Semi-bold" */
+    font-size: 18px;
+    color: #555555;
+    margin-bottom: 30px; /* Espaçamento abaixo */
+}
+
+/* --- Texto "Crie um código que:" --- */
+.crie-codigo-texto {
+    font-family: 'Inter', sans-serif;
+    font-weight: 600; /* Semibold */
+    font-size: 14px;
+    color: #555555;
+    margin-bottom: 20px; /* Espaçamento abaixo */
+}
+
+/* --- Lista de Instruções --- */
+.instrucoes-lista {
+    font-family: 'Inter', sans-serif;
+    font-weight: 500; /* Medium */
+    font-size: 14px;
+    color: #555555;
+    list-style-position: inside; /* Alinha os números dentro do texto */
+    padding-left: 0; /* Remove o padding padrão da lista */
+    margin-bottom: 32px; /* Espaçamento para o próximo container */
+}
+
+.instrucoes-lista li {
+    margin-bottom: 8px; /* Espaçamento entre os itens da lista */
+}
+
+/* --- Container para o texto "Olá, meu nome é [seu nome]..." --- */
+.text-display-container {
+    background-color: #f2f3f7; /* Cor do container */
+    border-radius: 8px; /* Radius */
+    width: 100%; /* Ocupa a largura total dentro do .container */
+    height: 80px; /* Altura fixa */
+    display: flex; /* Para centralizar o texto */
+    justify-content: center; /* Centraliza horizontalmente */
+    align-items: center; /* Centraliza verticalmente */
+    padding: 10px; /* Padding interno */
+    box-sizing: border-box; /* Garante que padding não aumente o tamanho */
+    margin-bottom: 32px; /* Margem para o próximo elemento */
+}
+
+.text-display-container p {
+    font-family: 'Inter', sans-serif;
+    font-weight: 600; /* Semi-bold */
+    font-size: 16px;
+    color: #0900FF; /* Cor específica */
+    text-align: center; /* Centraliza o texto */
+    margin: 0; /* Remove margens padrão do parágrafo dentro do container */
+}
+
+/* --- Texto "Digite o código" --- */
+.input-label {
+    font-family: 'Inter', sans-serif;
+    font-weight: 500; /* Medium */
+    font-size: 14px;
+    color: #555555;
+    margin-bottom: 20px; /* Espaçamento abaixo do texto para o campo de input */
+    margin-top: 32px; /* Margem em relação ao container anterior */
+    align-self: flex-start; /* Alinha o texto à esquerda dentro do .container */
+}
+
+/* --- Campo para Input de Texto (Textarea) --- */
+.textarea-input-field { /* Usando essa classe para o campo de input de texto */
+    background-color: #f2f3f7; /* Cor do container/campo */
+    border-radius: 8px; /* Radius */
+    width: 100%; /* Ocupa a largura total dentro do .container */
+    height: 150px; /* Altura da textarea */
+    padding: 10px; /* Padding interno para o texto da textarea */
+    box-sizing: border-box;
+    display: flex; /* Para organizar o conteúdo interno */
+    flex-direction: column;
+    margin-bottom: 6px; /* Espaço para o text-below */
+}
+
+textarea#codigo {
+    background-color: transparent;
+    border: none;
+    outline: none;
+    font-family: monospace;
+    font-size: 14px;
+    color: #333;
+    width: 100%;
+    height: 100%;
+    resize: vertical; /* Permite redimensionamento vertical */
+    box-sizing: border-box;
+    padding: 0;
+    line-height: 1.5; /* Espaçamento entre linhas */
+}
+
+/* --- Texto fixo abaixo da textarea --- */
+.text-below {
+    font-size: 12px;
+    color: #555;
+    margin-top: 6px; /* Espaço em relação à textarea */
+    padding-right: 10px; /* Alinha com o padding da textarea à direita */
+    box-sizing: border-box;
+    width: 100%;
+    font-weight: 500;
+    text-align: right;
+    user-select: none;
+}
+
+/* --- Contêiner dos Botões --- */
+.button-container {
+    display: flex;
+    justify-content: center;
+    width: 100%; /* Ocupa a largura total do container pai */
+    margin-top: 30px; /* Espaço acima dos botões */
+    gap: 20px; /* Espaçamento entre os botões */
+}
+
+/* --- Estilo Base dos Botões --- */
+button {
+    width: 125px; /* Largura fixa */
+    height: 50px; /* Altura fixa */
+    padding: 10px 20px;
+    border-radius: 8px; /* Raio da borda */
+    cursor: pointer;
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    font-weight: 600; /* Semi-bold */
+    flex-shrink: 0;
+    display: flex; /* Para centralizar o texto do botão */
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease; /* Transição suave */
+}
+
+/* --- Botão Validar --- */
+#validarBtn {
+    background-color: #0900FF; /* Cor de preenchimento */
+    color: #FFFFFF; /* Cor do texto */
+    border: none; /* Remove borda, já que a cor de preenchimento cobre */
+}
+
+#validarBtn:hover {
+    background-color: #0000CC; /* Um tom mais escuro no hover */
+}
+
+/* --- Botão Limpar --- */
 #limparBtn {
-  background-color: transparent; /* Remove o preenchimento */
-  color: #007bff; /* Cor do texto azul */
-  border: 1px solid #007bff; /* Adiciona o contorno azul */
+    background-color: transparent; /* Transparente */
+    color: #0900FF; /* Cor do texto */
+    border: 2px solid #0900FF; /* Stroke de 2px */
 }
 
 #limparBtn:hover {
-  background-color: #e6f2ff; /* Um leve fundo azul ao passar o mouse */
-  color: #0056b3; /* Escurece o texto no hover */
-  border-color: #0056b3; /* Escurece o contorno no hover */
+    background-color: #e6e6ff; /* Leve fundo no hover */
+    color: #0000CC;
+    border-color: #0000CC;
 }
 
-/* Modal */
+/* --- Estilos Gerais do Modal (aplicado a modalErro e modalSucesso) --- */
 .modal {
-  display: none;
-  position: fixed;
-  z-index: 999;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  overflow: auto;
-  background-color: rgba(0, 0, 0, 0.5);
-  animation: fadeIn 0.5s ease forwards;
+    display: none; /* ESSENCIAL: Garante que o modal esteja oculto por padrão */
+    position: fixed;
+    z-index: 999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5);
+    align-items: center; /* Usado quando o display for 'flex' (ativado pelo JS) */
+    justify-content: center; /* Usado quando o display for 'flex' (ativado pelo JS) */
+    animation: fadeIn 0.5s ease forwards;
 }
+
 .modal-content {
-  background-color: #fefefe;
-  margin: 15% auto;
-  padding: 20px;
-  border: 1px solid #888;
-  width: 80%;
-  max-width: 400px;
-  border-radius: 8px;
-  text-align: center;
-  position: relative;
-  animation: fadeIn 0.5s ease forwards;
+    background-color: #fefefe;
+    padding: 20px;
+    border: 1px solid #888; /* Este pode ser sobrescrito por classes específicas */
+    width: 90%;
+    max-width: 400px;
+    border-radius: 8px;
+    text-align: center;
+    position: relative;
+    animation: fadeIn 0.5s ease forwards;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 }
-.modal-icon {
-  font-size: 32px;
-  margin-right: 10px;
-  vertical-align: middle;
+
+/* --- Estilos Específicos para o Modal de SUCESSO (True) --- */
+.modal-success-content {
+    width: 326px; /* Largura conforme Figma */
+    height: 190px; /* Altura conforme Figma */
+    background-color: #FFFFFF; /* Cor de fundo */
+    border-radius: 8px; /* Raio da borda */
+    padding: 20px; /* Ajuste o padding conforme necessário */
+    display: flex; /* Para organizar o conteúdo interno */
+    flex-direction: column;
+    justify-content: center; /* Centraliza verticalmente o conteúdo */
+    align-items: center; /* Centraliza horizontalmente o conteúdo */
+    box-sizing: border-box; /* Inclui padding na largura/altura */
 }
-.modal-title {
-  font-weight: 600;
-  font-size: 18px;
-  margin-bottom: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+
+.modal-header { /* Compartilhado entre modal de erro e sucesso */
+    display: flex;
+    justify-content: space-between; /* Espaço entre o título e o botão de fechar */
+    align-items: center;
+    width: 100%; /* Ocupa a largura total do modal-content */
+    margin-bottom: 20px; /* Espaço abaixo do cabeçalho */
 }
+
+.modal-title-wrapper { /* Compartilhado entre modal de erro e sucesso */
+    display: flex;
+    align-items: center;
+    flex-grow: 1; /* Permite que o wrapper ocupe o espaço disponível */
+    justify-content: center; /* Centraliza o conteúdo (ícone e título) */
+}
+
+.modal-check-icon {
+    width: 24px; /* Tamanho do ícone de check */
+    height: 24px;
+    margin-right: 6px; /* Espaçamento de 6px à direita do ícone */
+}
+
+.modal-success-title {
+    font-family: 'Inter', sans-serif;
+    font-weight: 600; /* Semibold */
+    font-size: 20px; /* Ajuste o tamanho da fonte conforme necessário */
+    color: #333333; /* Cor do texto */
+    margin: 0; /* Remove margens padrão do h3 */
+}
+
+.modal-body { /* Compartilhado entre modal de erro e sucesso */
+    text-align: center;
+    width: 100%;
+    flex-grow: 1; /* Permite que o body cresça para ocupar espaço */
+    display: flex;
+    align-items: center; /* Centraliza o conteúdo (parágrafo) verticalmente dentro do body */
+    justify-content: center; /* Centraliza o conteúdo (parágrafo) horizontalmente dentro do body */
+}
+
+.modal-dynamic-message {
+    font-family: 'Inter', sans-serif;
+    font-weight: 500; /* Medium */
+    font-size: 16px;
+    color: #555555;
+    margin-top: 0; /* Removido margem superior para centralização pelo flexbox */
+    line-height: 1.4; /* Ajuste para espaçamento entre as linhas */
+    max-width: 180px; /* Ajuste para forçar a quebra de linha como na imagem */
+    white-space: normal; /* Garante que o texto quebre linhas normalmente */
+    word-break: break-word; /* Força quebras de palavras longas, se necessário */
+}
+
+/* --- Estilos Específicos para o Modal de ERRO (false) --- */
+.modal-error-content {
+    width: 326px; /* Largura conforme Figma */
+    height: 254px; /* Altura conforme Figma */
+    background-color: #FFFFFF; /* Cor de fundo */
+    border-radius: 8px; /* Raio da borda */
+    padding: 20px; /* Ajuste o padding conforme necessário */
+    display: flex; /* Para organizar o conteúdo interno */
+    flex-direction: column;
+    justify-content: center; /* Centraliza verticalmente o conteúdo */
+    align-items: center; /* Centraliza horizontalmente o conteúdo */
+    box-sizing: border-box; /* Inclui padding na largura/altura */
+}
+
+.modal-alert-icon {
+    width: 24px; /* Tamanho do ícone de alerta */
+    height: 24px;
+    margin-right: 6px; /* Espaçamento de 6px à direita do ícone */
+}
+
+.modal-error-title {
+    font-family: 'Inter', sans-serif;
+    font-weight: 600; /* Semibold */
+    font-size: 20px; /* Ajuste o tamanho da fonte conforme necessário */
+    color: #333333; /* Cor do texto */
+    margin: 0; /* Remove margens padrão do h3 */
+}
+
+.modal-error-message {
+    font-family: 'Inter', sans-serif;
+    font-weight: 500; /* Medium */
+    font-size: 16px;
+    color: #555555;
+    margin-top: 10px; /* Espaço em relação ao título */
+    margin-bottom: 25px; /* Espaço para o botão */
+}
+
+.modal-error-button {
+    width: 190px; /* Largura conforme Figma */
+    height: 50px; /* Altura conforme Figma */
+    background-color: #0900FF; /* Cor de preenchimento */
+    color: #FFFFFF; /* Cor do texto */
+    border: none;
+    border-radius: 8px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 600; /* Semibold */
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    display: flex; /* Para centralizar o texto do botão */
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-error-button:hover {
+    background-color: #0000CC; /* Um tom mais escuro no hover */
+}
+
+/* Estilo para o botão de fechar (X) no modal (compartilhado) */
+.close-icon {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    width: 24px;
+    height: 24px;
+}
+
+.close-icon img {
+    width: 100%;
+    height: 100%;
+}
+
+.close-icon:hover {
+    opacity: 0.7;
+}
+
+/* --- Animações --- */
 @keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
+    from { opacity: 0; }
+    to { opacity: 1; }
 }
 @keyframes fadeOut {
-  from { opacity: 1; }
-  to { opacity: 0; }
+    from { opacity: 1; }
+    to { opacity: 0; }
+}
+
+/* --- Estilos Responsivos para Telas Maiores (Exemplo) --- */
+@media (min-width: 768px) {
+    .container {
+        width: 700px; /* Exemplo: largura para tablet */
+        border-radius: 8px; /* Bordas menos arredondadas ou quadradas */
+        margin-top: 40px;
+    }
+    body {
+        padding: 40px;
+    }
+    h1 {
+        font-size: 32px;
+    }
+    .subtitle {
+        font-size: 18px;
+    }
+    .desafio-titulo {
+        font-size: 22px;
+    }
+    .text-display-container, .textarea-input-field, .button-container {
+        width: 600px; /* Maior largura para os elementos internos */
+    }
 }
