@@ -21,13 +21,14 @@ body {
     background-color: #ffffff;
     border-radius: 50px 50px 0 0; /* Superior esquerdo e direito arredondados */
     width: 390px; /* Largura fixa para o design mobile base */
+    max-width: 100%; /* Garante que o container não seja maior que a tela */
     display: flex;
     flex-direction: column; /* Organiza os itens internos verticalmente */
     align-items: flex-start; /* Alinha os itens à esquerda por padrão */
     padding: 30px; /* Padding geral dentro do container */
     padding-bottom: 20px; /* Ajuste para o padding inferior */
     box-sizing: border-box;
-    margin-top: 60px; /* Espaço do topo para o título */
+    margin-top: 8px; /* Espaço do topo para o título */
 }
 
 /* --- Título Principal "Javascript I Basic" --- */
@@ -37,7 +38,7 @@ h1 {
     font-size: 24px;
     color: #555555;
     text-align: center;
-    margin-top: 40px; /* Espaçamento do topo do body */
+    margin-top: 12px; /* Espaçamento do topo do body */
     margin-bottom: 6px; /* Espaçamento abaixo para o subtítulo */
     width: 100%; /* Garante que ocupe toda a largura */
 }
@@ -149,7 +150,7 @@ textarea#codigo {
     line-height: 1.5; /* Espaçamento entre linhas */
 }
 
-/* --- Texto fixo abaixo da textarea --- */
+/* --- Texto fixo abaixo da textarea Digite seu código --- */
 .text-below {
     font-size: 12px;
     color: #555;
@@ -213,205 +214,228 @@ button {
 }
 
 /* --- Estilos Gerais do Modal (aplicado a modalErro e modalSucesso) --- */
+
 .modal {
-    display: none; /* ESSENCIAL: Garante que o modal esteja oculto por padrão */
-    position: fixed;
-    z-index: 999;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    background-color: rgba(0, 0, 0, 0.5);
-    align-items: center; /* Usado quando o display for 'flex' (ativado pelo JS) */
-    justify-content: center; /* Usado quando o display for 'flex' (ativado pelo JS) */
-    animation: fadeIn 0.5s ease forwards;
+  display: none; /* ou block quando for visível */
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
 }
 
-.modal-content {
-    background-color: #fefefe;
-    padding: 20px;
-    border: 1px solid #888; /* Este pode ser sobrescrito por classes específicas */
-    width: 90%;
-    max-width: 400px;
-    border-radius: 8px;
-    text-align: center;
-    position: relative;
-    animation: fadeIn 0.5s ease forwards;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+.modal-content.erro {
+  background-color: white;
+  margin: 10% auto;
+  padding: 24px;
+  border-radius: 8px;
+  width: 90%;
+  max-width: 400px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
-/* --- Estilos Específicos para o Modal de SUCESSO (True) --- */
-.modal-success-content {
-    width: 326px; /* Largura conforme Figma */
-    height: 190px; /* Altura conforme Figma */
-    background-color: #FFFFFF; /* Cor de fundo */
-    border-radius: 8px; /* Raio da borda */
-    padding: 20px; /* Ajuste o padding conforme necessário */
-    display: flex; /* Para organizar o conteúdo interno */
-    flex-direction: column;
-    justify-content: center; /* Centraliza verticalmente o conteúdo */
-    align-items: center; /* Centraliza horizontalmente o conteúdo */
-    box-sizing: border-box; /* Inclui padding na largura/altura */
+.modal-body {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centraliza horizontalmente */
+  gap: 8px; /* Espaçamento menor entre itens */
+  text-align: left; /* Alinha texto do título e mensagem à esquerda */
+  width: 100%; /* Para ocupar a largura do container */
 }
 
-.modal-header { /* Compartilhado entre modal de erro e sucesso */
-    display: flex;
-    justify-content: space-between; /* Espaço entre o título e o botão de fechar */
-    align-items: center;
-    width: 100%; /* Ocupa a largura total do modal-content */
-    margin-bottom: 20px; /* Espaço abaixo do cabeçalho */
+.icon-text-wrapper {
+  display: flex;
+  align-items: flex-start;
+  width: 100%;
+  text-align: left;
+  gap: 6px;
 }
 
-.modal-title-wrapper { /* Compartilhado entre modal de erro e sucesso */
-    display: flex;
-    align-items: center;
-    flex-grow: 1; /* Permite que o wrapper ocupe o espaço disponível */
-    justify-content: center; /* Centraliza o conteúdo (ícone e título) */
+.modal-icon {
+  width: 40px;
+  height: 40px;
+  flex-shrink: 0;
 }
 
-.modal-check-icon {
-    width: 24px; /* Tamanho do ícone de check */
-    height: 24px;
-    margin-right: 6px; /* Espaçamento de 6px à direita do ícone */
-}
-
-.modal-success-title {
-    font-family: 'Inter', sans-serif;
-    font-weight: 600; /* Semibold */
-    font-size: 20px; /* Ajuste o tamanho da fonte conforme necessário */
-    color: #333333; /* Cor do texto */
-    margin: 0; /* Remove margens padrão do h3 */
-}
-
-.modal-body { /* Compartilhado entre modal de erro e sucesso */
-    text-align: center;
-    width: 100%;
-    flex-grow: 1; /* Permite que o body cresça para ocupar espaço */
-    display: flex;
-    align-items: center; /* Centraliza o conteúdo (parágrafo) verticalmente dentro do body */
-    justify-content: center; /* Centraliza o conteúdo (parágrafo) horizontalmente dentro do body */
-}
-
-.modal-dynamic-message {
-    font-family: 'Inter', sans-serif;
-    font-weight: 500; /* Medium */
-    font-size: 16px;
-    color: #555555;
-    margin-top: 0; /* Removido margem superior para centralização pelo flexbox */
-    line-height: 1.4; /* Ajuste para espaçamento entre as linhas */
-    max-width: 180px; /* Ajuste para forçar a quebra de linha como na imagem */
-    white-space: normal; /* Garante que o texto quebre linhas normalmente */
-    word-break: break-word; /* Força quebras de palavras longas, se necessário */
-}
-
-/* --- Estilos Específicos para o Modal de ERRO (false) --- */
-.modal-error-content {
-    width: 326px; /* Largura conforme Figma */
-    height: 254px; /* Altura conforme Figma */
-    background-color: #FFFFFF; /* Cor de fundo */
-    border-radius: 8px; /* Raio da borda */
-    padding: 20px; /* Ajuste o padding conforme necessário */
-    display: flex; /* Para organizar o conteúdo interno */
-    flex-direction: column;
-    justify-content: center; /* Centraliza verticalmente o conteúdo */
-    align-items: center; /* Centraliza horizontalmente o conteúdo */
-    box-sizing: border-box; /* Inclui padding na largura/altura */
-}
-
-.modal-alert-icon {
-    width: 24px; /* Tamanho do ícone de alerta */
-    height: 24px;
-    margin-right: 6px; /* Espaçamento de 6px à direita do ícone */
+.modal-text {
+  display: flex;
+  flex-direction: column;
 }
 
 .modal-error-title {
-    font-family: 'Inter', sans-serif;
-    font-weight: 600; /* Semibold */
-    font-size: 20px; /* Ajuste o tamanho da fonte conforme necessário */
-    color: #333333; /* Cor do texto */
-    margin: 0; /* Remove margens padrão do h3 */
+  font-size: 18px;
+  font-weight: bold;
+  margin: 0;
 }
 
 .modal-error-message {
-    font-family: 'Inter', sans-serif;
-    font-weight: 500; /* Medium */
-    font-size: 16px;
-    color: #555555;
-    margin-top: 10px; /* Espaço em relação ao título */
-    margin-bottom: 25px; /* Espaço para o botão */
+  font-size: 14px;
+  margin: 6px 0 0 0;
 }
 
-.modal-error-button {
-    width: 190px; /* Largura conforme Figma */
-    height: 50px; /* Altura conforme Figma */
-    background-color: #0900FF; /* Cor de preenchimento */
-    color: #FFFFFF; /* Cor do texto */
-    border: none;
+.retry-button {
+  padding: 16px 90px;
+  background-color: #0900FF;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  
+  align-self: center; /* centraliza no flex container */
+  
+  white-space: nowrap;       /* evita quebra de linha */
+  max-width: 100%;           /* para respeitar a largura do container */
+  min-width: 150px;          /* largura mínima para o botão não ficar muito pequeno */
+  box-sizing: border-box;    /* garante que padding conte no tamanho total */
+  text-align: center;
+  margin-top: 24px;
+  
+  /* Para responsividade em telas pequenas */
+  overflow: hidden;
+  text-overflow: ellipsis;   /* se texto for muito grande, mostra "..." */
+}
+
+.retry-button:hover {
+  background-color: #0000CC;
+}
+
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 999;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.5);
+  align-items: center;
+  justify-content: center;
+  /* NÃO coloque animação aqui! Deixe para as classes .fadeIn/.fadeOut */
+}
+
+.modal-content {
+  background-color: #fefefe;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 90%;
+  max-width: 400px;
+  border-radius: 8px;
+  text-align: center;
+  position: relative;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  box-sizing: border-box;
+}
+
+/* --- estilo básico para o botão “Fechar” no modal sucesso, similar ao modal erro: --- */
+
+.modal-close-btn.close-btn {
+  background-color: #0900FF;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 24px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  align-self: flex-end; /* posiciona no canto superior direito, ajuste se quiser */
+}
+
+
+.modal-close-btn.close-btn:hover {
+  background-color: #0000CC;
+}
+
+/* --- Estilos Específicos para o Modal de SUCESSO (True) --- */
+
+/*.modal-success-content {
+    max-width: 90%;
+    width: 390auto;
+    background-color: #FFFFFF;
     border-radius: 8px;
-    font-family: 'Inter', sans-serif;
-    font-weight: 600; /* Semibold */
-    font-size: 16px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    display: flex; /* Para centralizar o texto do botão */
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-}
+    box-sizing: border-box;
+}*/
 
-.modal-error-button:hover {
-    background-color: #0000CC; /* Um tom mais escuro no hover */
-}
 
-/* Estilo para o botão de fechar (X) no modal (compartilhado) */
-.close-icon {
-    background: none;
-    border: none;
-    cursor: pointer;
-    padding: 0;
-    width: 24px;
-    height: 24px;
-}
-
-.close-icon img {
+.modal-header { /* Compartilhado entre modal de erro e sucesso */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     width: 100%;
-    height: 100%;
+    margin-bottom: 20px;
 }
 
-.close-icon:hover {
-    opacity: 0.7;
+.modal-title-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%; /* Ocupa toda a largura */
+  text-align: left; /* Texto alinhado à esquerda */
+  font-weight: bold;
+  font-size: 18px;
 }
 
-/* --- Animações --- */
+.modal-success-title {
+  margin: 0; /* Remove margem para alinhamento preciso */
+}
+
+.modal-dynamic-message {
+  font-size: 14px;
+  margin: 0; /* Remove margem para alinhar com o título */
+  width: 100%; /* Para ocupar toda a largura igual ao título */
+  text-align: left; /* Alinha à esquerda para ficar alinhado ao título */
+}
+
+.modal-close-btn {
+  margin: 20px auto 0 auto; /* Centraliza horizontalmente com margem superior */
+  padding: 10px 24px;
+  background-color: #0900FF;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  display: block; /* Garante que o botão respeite margin auto */
+  max-width: 150px; /* Limita o tamanho do botão para não ficar muito largo */
+  text-align: center;
+}
+
+.modal-close-btn:hover {
+  background-color: #0000cc;
+}
+
+#modalErro .close-icon {
+  display: none;
+}
+
+.fadeIn {
+  animation: fadeIn 0.5s ease forwards;
+}
+
+.fadeOut {
+  animation: fadeOut 0.5s ease forwards;
+}
+
 @keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
-}
-@keyframes fadeOut {
-    from { opacity: 1; }
-    to { opacity: 0; }
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
 
-/* --- Estilos Responsivos para Telas Maiores (Exemplo) --- */
-@media (min-width: 768px) {
-    .container {
-        width: 700px; /* Exemplo: largura para tablet */
-        border-radius: 8px; /* Bordas menos arredondadas ou quadradas */
-        margin-top: 40px;
-    }
-    body {
-        padding: 40px;
-    }
-    h1 {
-        font-size: 32px;
-    }
-    .subtitle {
-        font-size: 18px;
-    }
-    .desafio-titulo {
-        font-size: 22px;
-    }
-    .text-display-container, .textarea-input-field, .button-container {
-        width: 600px; /* Maior largura para os elementos internos */
-    }
+@keyframes fadeOut {
+  from { opacity: 1; }
+  to { opacity: 0; }
 }
+
+
+

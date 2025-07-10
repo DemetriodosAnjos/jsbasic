@@ -30,48 +30,45 @@
         <div class="textarea-input-field">
             <textarea id="codigo" placeholder=""></textarea>
         </div>
-        <div class="text-below">Javascript com Demetrio dos Anjos</div> 
-
+         
         <div class="button-container">
-            <button id="validarBtn">Validar</button>
-            <button id="limparBtn">Limpar</button>
+            <button id="validarBtn" type="button">Validar</button>
+            <button id="limparBtn" type="button">Limpar</button>
         </div>
     </div>
 
+    <!-- MODAL DE ERRO -->
     <div id="modalErro" class="modal">
-        <div class="modal-content modal-error-content">
-            <div class="modal-header">
-                <div class="modal-title-wrapper">
-                    <img src="icon/icon_alerta.svg" alt="Ícone de alerta" class="modal-alert-icon">
-                    <h3 class="modal-error-title">O código está incorreto!</h3>
-                </div>
-                <button class="modal-close-btn close-icon" data-modal-id="modalErro">
-                    <img src="icon/icon_close.svg" alt="Fechar">
-                </button>
-            </div>
+        <div class="modal-content erro">
             <div class="modal-body">
-                <p class="modal-error-message">Ops! Não foi desta vez, tente novamente.</p>
-                <button class="modal-error-button" data-modal-id="modalErro">Tentar novamente</button>
+                <div class="icon-text-wrapper">
+                    <img src="./alert-icon.svg" alt="Erro" class="modal-icon" />
+                    <div class="modal-text">
+                        <h2 class="modal-error-title">O código está incorreto!</h2>
+                        <p class="modal-error-message">Ops! Não foi desta vez, tente novamente.</p>
+                    </div>
+                </div>
+                <button class="retry-button" onclick="tentarNovamente()">Tentar novamente</button> 
             </div>
         </div>
     </div>
 
-    <div id="modalSucesso" class="modal">
-        <div class="modal-content modal-success-content">
-            <div class="modal-header">
-                <div class="modal-title-wrapper">
-                    <img src="icon/Icon_check.svg" alt="Ícone de check" class="modal-check-icon">
-                    <h3 class="modal-success-title">O código está correto!</h3>
-                </div>
-                <button class="modal-close-btn close-icon" data-modal-id="modalSucesso">
-                    <img src="icon/icon_close.svg" alt="Fechar">
-                </button>
-            </div>
-            <div class="modal-body">
-                <p class="modal-dynamic-message"></p>
-            </div>
-        </div>
+    <!-- MODAL DE SUCESSO -->
+<div id="modalSucesso" class="modal">
+  <div class="modal-content modal-success-content">
+    <div class="modal-body">
+      <div class="modal-title-wrapper">
+        <img src="icon/Icon_check.svg" alt="Ícone de check" class="modal-check-icon">
+        <h3 class="modal-success-title">O código está correto!</h3>
+      </div>
+      <p class="modal-dynamic-message"></p>
+
+      <!-- Botão Fechar abaixo da mensagem -->
+      <button class="modal-close-btn close-btn" data-modal-id="modalSucesso">Fechar</button>
     </div>
+  </div>
+</div>
+
 
     <script src="js/script.js"></script>
 </body>
